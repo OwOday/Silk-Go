@@ -1,2 +1,2 @@
 # Silk-Go
-A Go library for using cozo in Funnel browser
+A Go library for using OlegDB
