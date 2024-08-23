@@ -2,7 +2,4 @@ module github.com/OwOday/Silk-Go
 
 go 1.22.6
 
-require (
-	github.com/cozodb/cozo-lib-go v0.7.5 // indirect
-	github.com/stretchr/objx v0.5.0 // indirect
-)
+require github.com/infoforcefeed/olegdb v0.0.0-20200426024639-4291acb715b9 // indirect

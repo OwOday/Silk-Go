@@ -2,10 +2,10 @@
 all: setup build
 
 setup:
-	scripts/libcozo.sh
+	scripts/liboleg.sh
 
 build:
-	CGO_LDFLAGS="-L/${PWD}/libs" go build ./src/
+	LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${PWD}/libs/OlegDB" CGO_LDFLAGS="-L/${PWD}/libs/OlegDB" go build ./src/
 
 test: 
-	CGO_LDFLAGS="-L/${PWD}/libs" go test ./src/
+	LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${PWD}/libs/OlegDB" CGO_LDFLAGS="-L/${PWD}/libs/OlegDB" go test -v ./src/
