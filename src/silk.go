@@ -3,7 +3,6 @@ package silk
 import (
 	"bytes"
 	"encoding/gob"
-	"fmt"
 	"os"
 
 	"github.com/infoforcefeed/olegdb/pkg/goleg"
@@ -93,17 +92,8 @@ func (silk *Silk) PushNode(node RelationalNode) {
 	tmpBuffer := bytes.Buffer{}
 	encoder := gob.NewEncoder(&tmpBuffer)
 	//encode
-	fmt.Printf("%+v\n", node) //
-	println("pushdebug")      //
 	encoder.Encode(node)
-	tmpBytes := tmpBuffer.Bytes() //
-	fmt.Printf("%+v\n", tmpBytes) //
 	silk.database.Jar(node.Key, tmpBuffer.Bytes())
-	decoder := gob.NewDecoder(&tmpBuffer) //
-	var node2 RelationalNode              //
-	decoder.Decode(&node2)                //
-	println("pushdebug2")                 //
-	fmt.Printf("%+v\n", node2)            //
 }
 
 func (silk *Silk) PullNode(uuid string) RelationalNode {
