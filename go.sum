@@ -1,2 +1,4 @@
+github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/infoforcefeed/olegdb v0.0.0-20200426024639-4291acb715b9 h1:wl4EwP3aYPL+ofpXe2Ax7hXQAvXL6hlaBtbVGA2NtTg=
 github.com/infoforcefeed/olegdb v0.0.0-20200426024639-4291acb715b9/go.mod h1:O+zXmty6CFcNkd4dBkEvRpaKQ7pHTOzs3urTtBaaRp4=
