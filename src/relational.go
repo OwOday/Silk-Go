@@ -4,23 +4,25 @@ import (
 	"github.com/google/uuid"
 )
 
-type RelationalNode struct {
-	chunks []uuid.UUID
-	Key    string //UWUID
-	name   string
-	links  []RelationalNode
-	tags   []string
+type RelationalNode struct { //anything not public will not get encoded without a custom en/decoder (which defeats the purpose of using gob)
+	Chunks    []uuid.UUID
+	Key       string //UWUID
+	Name      string
+	Links     []string
+	Backlinks []string
+	Tags      []string
 }
 
 func NewRelationalNode(value string) *RelationalNode {
 	//maybe take a list for tags and links?
 	key, uuids := KeyFromValue(value)
 	return &RelationalNode{
-		chunks: uuids,
-		Key:    key,
-		name:   value,
-		links:  nil,
-		tags:   nil,
+		Chunks:    uuids,
+		Key:       key,
+		Name:      value,
+		Links:     nil,
+		Backlinks: nil,
+		Tags:      nil,
 	}
 }
 

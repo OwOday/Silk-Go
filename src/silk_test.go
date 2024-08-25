@@ -28,12 +28,22 @@ import (
 // 	os.RemoveAll(dir)
 // }
 
-// func TestOpen(t *testing.T) {
-// 	t.Log("TestOpen\n")
-// 	if testing.Short() {
-// 		t.Skip("Skipping in short mode")
-// 	}
+//	func TestOpen(t *testing.T) {
+//		t.Log("TestOpen\n")
+//		if testing.Short() {
+//			t.Skip("Skipping in short mode")
+//		}
+func TestPull(t *testing.T) {
 
+	test_silk := New()
+	os.MkdirAll("../dbs/testdb", os.ModePerm)
+	test_silk.OpenDatabase("../dbs/testdb", "testsilk", FEATS.AppendOnly)
+
+	test_string := "I wanna be the very best"
+	key, _ := KeyFromValue(test_string)
+	dump(test_silk.PullNode(key))
+	test_silk.CloseDatabase()
+}
 func TestOpen(t *testing.T) {
 	if testing.Short() {
 		t.Skip("Skipping in short mode")
@@ -44,14 +54,9 @@ func TestOpen(t *testing.T) {
 	test_silk.OpenDatabase("../dbs/testdb", "testsilk", FEATS.AppendOnly)
 
 	test_string := "I wanna be the very best"
-	key, uuids := KeyFromValue(test_string)
-	node := RelationalNode{
-		chunks: uuids,
-		Key:    key,
-		name:   test_string,
-		links:  nil,
-		tags:   nil,
-	}
+	//key, uuids := KeyFromValue(test_string)
+	node := *NewRelationalNode(test_string)
+	dump(node)
 	test_silk.PushNode(node)
 	dump(test_silk.PullNode(node.Key))
 	test_silk.CloseDatabase()
