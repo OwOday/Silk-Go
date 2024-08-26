@@ -11,6 +11,7 @@ type RelationalNode struct { //anything not public will not get encoded without 
 	Links     []string
 	Backlinks []string
 	Tags      []string
+	//add data node + encoders to hold website renderings and note markdown, calendar events, whatever
 }
 
 func NewRelationalNode(value string) *RelationalNode {
